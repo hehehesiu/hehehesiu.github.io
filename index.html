@@ -71,6 +71,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-week4-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/21/week4-answer/" class="article-date">
+  <time class="dt-published" datetime="2022-11-21T10:04:36.000Z" itemprop="datePublished">2022-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/21/week4-answer/">week4-answer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周学习dfs和bfs两种算法，可用于搜索、遍历"><a href="#本周学习dfs和bfs两种算法，可用于搜索、遍历" class="headerlink" title="本周学习dfs和bfs两种算法，可用于搜索、遍历"></a>本周学习dfs和bfs两种算法，可用于搜索、遍历</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h3 id="1-P1605-迷宫-https-www-luogu-com-cn-problem-P1605"><a href="#1-P1605-迷宫-https-www-luogu-com-cn-problem-P1605" class="headerlink" title="1.(P1605 迷宫)[https://www.luogu.com.cn/problem/P1605]"></a>1.(P1605 迷宫)[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1605]">https://www.luogu.com.cn/problem/P1605]</a></h3><h4 id="dfs"><a href="#dfs" class="headerlink" title="dfs"></a>dfs</h4><h4 id="用数组a-储存地图信息-1代表障碍，0代表无障碍-，用数组vis-判断是否走过-0代表没走过，1代表走过"><a href="#用数组a-储存地图信息-1代表障碍，0代表无障碍-，用数组vis-判断是否走过-0代表没走过，1代表走过" class="headerlink" title="用数组a[]储存地图信息(1代表障碍，0代表无障碍)，用数组vis[]判断是否走过(0代表没走过，1代表走过)"></a>用数组a[]储存地图信息(1代表障碍，0代表无障碍)，用数组vis[]判断是否走过(0代表没走过，1代表走过)</h4><h4 id="每次执行dfs时，依次列举可能的走法-向上-x2F-下-x2F-左-x2F-右-判断是否在地图范围内、是否走过以及有无障碍-通过则继续下一步，直到到达终点"><a href="#每次执行dfs时，依次列举可能的走法-向上-x2F-下-x2F-左-x2F-右-判断是否在地图范围内、是否走过以及有无障碍-通过则继续下一步，直到到达终点" class="headerlink" title="每次执行dfs时，依次列举可能的走法(向上&#x2F;下&#x2F;左&#x2F;右),判断是否在地图范围内、是否走过以及有无障碍,通过则继续下一步，直到到达终点"></a>每次执行dfs时，依次列举可能的走法(向上&#x2F;下&#x2F;左&#x2F;右),判断是否在地图范围内、是否走过以及有无障碍,通过则继续下一步，直到到达终点</h4><h4 id="注意：判断成功后先将vis改为1-走过-，然后执行dfs-下一步-再将vis改为0；"><a href="#注意：判断成功后先将vis改为1-走过-，然后执行dfs-下一步-再将vis改为0；" class="headerlink" title="注意：判断成功后先将vis改为1(走过)，然后执行dfs(下一步),再将vis改为0；"></a>注意：判断成功后先将vis改为1(走过)，然后执行dfs(下一步),再将vis改为0；</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,t,xo,yo;</span><br><span class="line"><span class="type">int</span> nx,ny,xg,yg;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>][<span class="number">10</span>],vis[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>]= &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,dy[<span class="number">4</span>]= &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="comment">//int ux[105*105],uy[105*105];</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> step)</span> </span>&#123;                  <span class="comment">//step代表步骤</span></span><br><span class="line">	<span class="comment">//printf(&quot;%d %d\n&quot;,x,y); </span></span><br><span class="line">	<span class="keyword">if</span>(x==nx&amp;&amp;y==ny) &#123;                          <span class="comment">// 到达终点，方案数+1</span></span><br><span class="line">		<span class="comment">//for(int j=1; j&lt;=step; j++) printf(&quot;%d:%d %d\n&quot;,j,ux[j],uy[j]);</span></span><br><span class="line">		sum++;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;<span class="type">int</span> next_x,next_y;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++) &#123;</span><br><span class="line">			next_x=x+dx[i];</span><br><span class="line">			next_y=y+dy[i];</span><br><span class="line">			<span class="keyword">if</span>(next_x&gt;<span class="number">0</span>&amp;&amp;next_x&lt;=n&amp;&amp;next_y&gt;<span class="number">0</span>&amp;&amp;next_y&lt;=m&amp;&amp;a[next_x][next_y]==<span class="number">0</span>&amp;&amp;vis[next_x][next_y]==<span class="number">0</span>) &#123;  <span class="comment">//判断条件</span></span><br><span class="line">				vis[next_x][next_y]=<span class="number">1</span>;</span><br><span class="line">				<span class="comment">//ux[step+1]=next_x;</span></span><br><span class="line">				<span class="comment">//uy[step+1]=next_y;</span></span><br><span class="line">				<span class="built_in">dfs</span>(next_x,next_y,step+<span class="number">1</span>);        <span class="comment">//继续下一步</span></span><br><span class="line">				vis[next_x][next_y]=<span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;t);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;xo,&amp;yo,&amp;nx,&amp;ny);</span><br><span class="line">	<span class="keyword">while</span>(t--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;xg,&amp;yg);</span><br><span class="line">		a[xg][yg]=<span class="number">1</span>;       <span class="comment">//标记障碍</span></span><br><span class="line">	&#125;</span><br><span class="line">	vis[xo][yo]=<span class="number">1</span>;         <span class="comment">//标记起点走过</span></span><br><span class="line">	<span class="comment">//ux[1]=xo;</span></span><br><span class="line">	<span class="comment">//uy[1]=yo;</span></span><br><span class="line">	<span class="type">int</span> count=<span class="built_in">dfs</span>(xo,yo,<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-P1443-马的遍历-https-www-luogu-com-cn-problem-P1443"><a href="#2-P1443-马的遍历-https-www-luogu-com-cn-problem-P1443" class="headerlink" title="2.(P1443 马的遍历)[https://www.luogu.com.cn/problem/P1443]"></a>2.(P1443 马的遍历)[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1443]">https://www.luogu.com.cn/problem/P1443]</a></h3><h4 id="本题使用bfs-同时学习了queue中pair的用法"><a href="#本题使用bfs-同时学习了queue中pair的用法" class="headerlink" title="本题使用bfs,同时学习了queue中pair的用法"></a>本题使用bfs,同时学习了queue中pair的用法</h4><h4 id="用队列储存每个可以走过的点，每次将队列中第一个元素-包含两个数据-提取出来，用和dfs一样的方法，列举出所有可能的下一步，判断通过后将这个下一步存入队列"><a href="#用队列储存每个可以走过的点，每次将队列中第一个元素-包含两个数据-提取出来，用和dfs一样的方法，列举出所有可能的下一步，判断通过后将这个下一步存入队列" class="headerlink" title="用队列储存每个可以走过的点，每次将队列中第一个元素(包含两个数据)提取出来，用和dfs一样的方法，列举出所有可能的下一步，判断通过后将这个下一步存入队列"></a>用队列储存每个可以走过的点，每次将队列中第一个元素(包含两个数据)提取出来，用和dfs一样的方法，列举出所有可能的下一步，判断通过后将这个下一步存入队列</h4><h4 id="用数组f-储存步数，每一步在上一步的基础上-1"><a href="#用数组f-储存步数，每一步在上一步的基础上-1" class="headerlink" title="用数组f[][]储存步数，每一步在上一步的基础上+1"></a>用数组f[][]储存步数，每一步在上一步的基础上+1</h4><h4 id="本题也使用了bool型的数组vis-判断是否走过"><a href="#本题也使用了bool型的数组vis-判断是否走过" class="headerlink" title="本题也使用了bool型的数组vis[][]判断是否走过"></a>本题也使用了bool型的数组vis[][]判断是否走过</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,x,y;</span><br><span class="line">queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; &gt; q;</span><br><span class="line"><span class="type">int</span> cnt[<span class="number">405</span>][<span class="number">405</span>];</span><br><span class="line"><span class="type">bool</span> vis[<span class="number">405</span>][<span class="number">405</span>];</span><br><span class="line"><span class="type">int</span> dx[<span class="number">8</span>]= &#123;<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>&#125;,dy[<span class="number">8</span>]= &#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-2</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(cnt,<span class="number">-1</span>,<span class="built_in">sizeof</span>(cnt));       <span class="comment">//数组初始化，为输出准备</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;x,&amp;y);</span><br><span class="line">	cnt[x][y]=<span class="number">0</span>;</span><br><span class="line">	vis[x][y]=<span class="literal">true</span>;</span><br><span class="line">	q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(x,y));           <span class="comment">//存入x和y作为第一个元素</span></span><br><span class="line">	<span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="type">int</span> fx=q.<span class="built_in">front</span>().first,fy=q.<span class="built_in">front</span>().second;  <span class="comment">//提取最上方一个元素</span></span><br><span class="line">		q.<span class="built_in">pop</span>();       <span class="comment">//删除</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++) &#123;</span><br><span class="line">			<span class="type">int</span> nx=fx+dx[i],ny=fy+dy[i];</span><br><span class="line">			<span class="keyword">if</span>(nx&gt;=<span class="number">1</span>&amp;&amp;nx&lt;=n&amp;&amp;ny&gt;=<span class="number">1</span>&amp;&amp;ny&lt;=m&amp;&amp;!vis[nx][ny]) &#123;  <span class="comment">//判断条件，写法与dfs相同</span></span><br><span class="line">				vis[nx][ny]=<span class="literal">true</span>;</span><br><span class="line">				q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(nx,ny));</span><br><span class="line">				cnt[nx][ny]=cnt[fx][fy]+<span class="number">1</span>;     <span class="comment">//统计步数</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=m; j++) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%-5d&quot;</span>,cnt[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="claqnk6gt000cggu805nmdhcj" data-title="week4-answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-第一次周赛-2022-11-12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" class="article-date">
@@ -106,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clahmxrut0004lwu8hsd95wzm" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="claqnk6gs000aggu86flzblx4" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clahmrw080004l8u86byc3nqu" data-title="week3 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="claqnk6gs0009ggu8bszs3bfa" data-title="week3 answer" class="article-share-link">Share</a>
       
       
       
@@ -197,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clahmrw000000l8u82xyqam3u" data-title="week1 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="claqnk6gm0001ggu8hpby0657" data-title="week1 answer" class="article-share-link">Share</a>
       
       
       
@@ -246,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="clahmrw040001l8u880z8e8py" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="claqnk6gi0000ggu8bb0849w8" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
       
       
       
@@ -299,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="clahmrw070003l8u8hd9scu5h" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="claqnk6gp0003ggu87586h7yn" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -324,7 +368,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li></ul>
     </div>
   </div>
 
@@ -334,7 +378,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 10px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a>
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 10px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a>
     </div>
   </div>
 
@@ -356,6 +400,10 @@
       <ul>
         
           <li>
+            <a href="/2022/11/21/week4-answer/">week4-answer</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/">第一次周赛 2022-11-12</a>
           </li>
         
@@ -369,10 +417,6 @@
         
           <li>
             <a href="/2022/11/04/ACM-Week2-answer-and-experience/">ACM Week2 团队作业</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/31/hello-world/">Hello World</a>
           </li>
         
       </ul>
