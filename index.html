@@ -71,6 +71,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-week5-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/25/week5-answer/" class="article-date">
+  <time class="dt-published" datetime="2022-11-25T09:17:27.000Z" itemprop="datePublished">2022-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/25/week5-answer/">week5 answer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周学习了图的基本知识，题目主要是运用图与链表、dfs结合的写法"><a href="#本周学习了图的基本知识，题目主要是运用图与链表、dfs结合的写法" class="headerlink" title="本周学习了图的基本知识，题目主要是运用图与链表、dfs结合的写法"></a>本周学习了图的基本知识，题目主要是运用图与链表、dfs结合的写法</h2><h3 id="1-P8604-蓝桥杯-2013-国-C-危险系数"><a href="#1-P8604-蓝桥杯-2013-国-C-危险系数" class="headerlink" title="1.P8604 [蓝桥杯 2013 国 C] 危险系数"></a>1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8604">P8604 [蓝桥杯 2013 国 C] 危险系数</a></h3><h3 id="本题通过vector-q-储存边（点之间的联系）；通过dfs遍历并计算所有点的经过次数以及路径数量，经过次数等于路径数量的点就是关键点"><a href="#本题通过vector-q-储存边（点之间的联系）；通过dfs遍历并计算所有点的经过次数以及路径数量，经过次数等于路径数量的点就是关键点" class="headerlink" title="本题通过vector q[]储存边（点之间的联系）；通过dfs遍历并计算所有点的经过次数以及路径数量，经过次数等于路径数量的点就是关键点"></a>本题通过vector<int> q[]储存边（点之间的联系）；通过dfs遍历并计算所有点的经过次数以及路径数量，经过次数等于路径数量的点就是关键点</h3><h3 id="注意：关键点数量最后需-2，因为将起点与终点统计在内；vector的存入方式为push-back。"><a href="#注意：关键点数量最后需-2，因为将起点与终点统计在内；vector的存入方式为push-back。" class="headerlink" title="注意：关键点数量最后需-2，因为将起点与终点统计在内；vector的存入方式为push_back。"></a>注意：关键点数量最后需-2，因为将起点与终点统计在内；vector的存入方式为push_back。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,u,v,ans,sum; </span><br><span class="line"><span class="type">int</span> st,ed;</span><br><span class="line">vector &lt;<span class="type">int</span>&gt; q[<span class="number">1005</span>];    <span class="comment">//运用vector储存边</span></span><br><span class="line"><span class="type">int</span> vis[<span class="number">1005</span>],cnt[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==ed)&#123;</span><br><span class="line">		ans++;                   <span class="comment">//ans统计路径数量</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[i]) cnt[i]++; <span class="comment">//所有经过点对应的cnt[]+1；</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;q[x].<span class="built_in">size</span>();i++)&#123;    <span class="comment">//dfs常规写法</span></span><br><span class="line">		<span class="keyword">if</span>(!vis[q[x][i]])&#123;</span><br><span class="line">			vis[q[x][i]]=<span class="number">1</span>;</span><br><span class="line">			<span class="built_in">dfs</span>(q[x][i]);</span><br><span class="line">			vis[q[x][i]]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		cin&gt;&gt;u&gt;&gt;v;         <span class="comment">//因为是无向图，在边的两个端点各存一次</span></span><br><span class="line">		q[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">		q[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cin&gt;&gt;st&gt;&gt;ed;</span><br><span class="line">	vis[st]=<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">dfs</span>(st);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(cnt[i]==ans)&#123;</span><br><span class="line">			sum++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(sum<span class="number">-2</span>==<span class="number">0</span>) cout&lt;&lt;<span class="string">&quot;-1&quot;</span>;    <span class="comment">//扣除起点与终点</span></span><br><span class="line">	<span class="keyword">else</span> cout&lt;&lt;sum<span class="number">-2</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-P3916-图的遍历"><a href="#2-P3916-图的遍历" class="headerlink" title="2.P3916 图的遍历"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3916">P3916 图的遍历</a></h3><h4 id="本题比较不同，因为求各个点所能到编号的最大值，因此从编号最大的点开始遍历"><a href="#本题比较不同，因为求各个点所能到编号的最大值，因此从编号最大的点开始遍历" class="headerlink" title="本题比较不同，因为求各个点所能到编号的最大值，因此从编号最大的点开始遍历"></a>本题比较不同，因为求各个点所能到编号的最大值，因此从编号最大的点开始遍历</h4><h4 id="从编号较大的点开始遍历，其能到并且之前未到过的点-所能到的点的最大编号就是该编号，更大编号的点无法到达，更小编号的点因（更晚）遍历时该点已被到达过而不会改变这个点。因此每个点都只会对应一个值，就是最大的编号"><a href="#从编号较大的点开始遍历，其能到并且之前未到过的点-所能到的点的最大编号就是该编号，更大编号的点无法到达，更小编号的点因（更晚）遍历时该点已被到达过而不会改变这个点。因此每个点都只会对应一个值，就是最大的编号" class="headerlink" title="从编号较大的点开始遍历，其能到并且之前未到过的点 所能到的点的最大编号就是该编号，更大编号的点无法到达，更小编号的点因（更晚）遍历时该点已被到达过而不会改变这个点。因此每个点都只会对应一个值，就是最大的编号"></a>从编号较大的点开始遍历，其能到并且之前未到过的点 所能到的点的最大编号就是该编号，更大编号的点无法到达，更小编号的点因（更晚）遍历时该点已被到达过而不会改变这个点。因此每个点都只会对应一个值，就是最大的编号</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,u,v,ans,sum;</span><br><span class="line"><span class="type">int</span> Max;</span><br><span class="line"><span class="type">int</span> F[<span class="number">100005</span>];        <span class="comment">//用数组F[]储存每个点所能到达的最大数值</span></span><br><span class="line">vector &lt;<span class="type">int</span>&gt; q[<span class="number">100005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> d)</span> </span>&#123;    <span class="comment">//x为当前所在点，d为最大编号值</span></span><br><span class="line">	<span class="keyword">if</span>(F[x]) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//已被到达过的点就不改变其数值</span></span><br><span class="line">	F[x]=d;               <span class="comment">//未被到达过的点存入最大编号</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;q[x].<span class="built_in">size</span>(); i++) &#123;   <span class="comment">//继续下一个点</span></span><br><span class="line">		<span class="built_in">dfs</span>(q[x][i],d);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">while</span>(m--) &#123;  </span><br><span class="line">		cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">		q[v].<span class="built_in">push_back</span>(u);    <span class="comment">//有向图</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=n; i&gt;=<span class="number">1</span>; i--) &#123;    <span class="comment">//按编号值从大到小依次遍历</span></span><br><span class="line">		<span class="built_in">dfs</span>(i,i);             </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cout&lt;&lt;F[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-P1330-封锁阳光大学"><a href="#3-P1330-封锁阳光大学" class="headerlink" title="3.P1330 封锁阳光大学"></a>3.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1330">P1330 封锁阳光大学</a></h3><h4 id="通常也是从每个点进行遍历，统计各个点的经过次数。但此题由于河蟹不能在相邻位置，也就是说不能同时占据两个相邻的点，只能占领一条边上其中一点"><a href="#通常也是从每个点进行遍历，统计各个点的经过次数。但此题由于河蟹不能在相邻位置，也就是说不能同时占据两个相邻的点，只能占领一条边上其中一点" class="headerlink" title="通常也是从每个点进行遍历，统计各个点的经过次数。但此题由于河蟹不能在相邻位置，也就是说不能同时占据两个相邻的点，只能占领一条边上其中一点"></a>通常也是从每个点进行遍历，统计各个点的经过次数。但此题由于河蟹不能在相邻位置，也就是说不能同时占据两个相邻的点，只能占领一条边上其中一点</h4><h4 id="可以将图分为多个子图，从每个子图中任意一个点开始遍历，将第一个点标记为0，相邻的点标记为1，再下一个相邻的点标记为0······每张子图遍历过后统计0和1的点的个数，并对较小值进行加总"><a href="#可以将图分为多个子图，从每个子图中任意一个点开始遍历，将第一个点标记为0，相邻的点标记为1，再下一个相邻的点标记为0······每张子图遍历过后统计0和1的点的个数，并对较小值进行加总" class="headerlink" title="可以将图分为多个子图，从每个子图中任意一个点开始遍历，将第一个点标记为0，相邻的点标记为1，再下一个相邻的点标记为0······每张子图遍历过后统计0和1的点的个数，并对较小值进行加总"></a>可以将图分为多个子图，从每个子图中任意一个点开始遍历，将第一个点标记为0，相邻的点标记为1，再下一个相邻的点标记为0······每张子图遍历过后统计0和1的点的个数，并对较小值进行加总</h4><h4 id="本次代码中dfs返回true-x2F-false：若一个点标记为0，相邻点已被标记为0，就返回false；相邻点能否标记成功也影响该点的成功与否"><a href="#本次代码中dfs返回true-x2F-false：若一个点标记为0，相邻点已被标记为0，就返回false；相邻点能否标记成功也影响该点的成功与否" class="headerlink" title="本次代码中dfs返回true&#x2F;false：若一个点标记为0，相邻点已被标记为0，就返回false；相邻点能否标记成功也影响该点的成功与否"></a>本次代码中dfs返回true&#x2F;false：若一个点标记为0，相邻点已被标记为0，就返回false；相邻点能否标记成功也影响该点的成功与否</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,u,v,ans;</span><br><span class="line">vector &lt;<span class="type">int</span>&gt; q[<span class="number">100005</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">100005</span>],sum[<span class="number">2</span>],col[<span class="number">10005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> color)</span> </span>&#123;    <span class="comment">//x为当前所在的点，color为0或1，即要标记的数值</span></span><br><span class="line">	<span class="keyword">if</span>(vis[x]) &#123;     <span class="comment">//若已被标记</span></span><br><span class="line">		<span class="keyword">if</span>(col[x]==color) <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">//标记成功</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;        <span class="comment">//标记失败</span></span><br><span class="line">	&#125;</span><br><span class="line">	vis[x]=<span class="number">1</span>;          <span class="comment">//走过</span></span><br><span class="line">	col[x]=color;      <span class="comment">//标记0/1</span></span><br><span class="line">	sum[color]++;      <span class="comment">//统计0/1的值</span></span><br><span class="line">	<span class="type">int</span> tf=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;q[x].<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">		tf=tf&amp;&amp;<span class="built_in">dfs</span>(q[x][i],<span class="number">1</span>-color);  <span class="comment">//是否可以继续标记</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> tf;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">while</span>(m--) &#123;</span><br><span class="line">		cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">		q[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">		q[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[i]) <span class="keyword">continue</span>;    <span class="comment">//该点被标记过说明所属子图已被遍历，继续下一个点</span></span><br><span class="line">		sum[<span class="number">0</span>]=<span class="number">0</span>;               <span class="comment">//初始化</span></span><br><span class="line">		sum[<span class="number">1</span>]=<span class="number">0</span>;         </span><br><span class="line">		<span class="keyword">if</span>(!<span class="built_in">dfs</span>(i,<span class="number">0</span>)) &#123;         <span class="comment">//若有标记不成功的点，就输出“Impossible”</span></span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;Impossible&quot;</span>;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		ans+=<span class="built_in">min</span>(sum[<span class="number">0</span>],sum[<span class="number">1</span>]);<span class="comment">//加上二者中较小的一方</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/25/week5-answer/" data-id="clawcfv5q0007rsu89kzhb5wf" data-title="week5 answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-week4-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/21/week4-answer/" class="article-date">
@@ -101,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="claqnk6gt000cggu805nmdhcj" data-title="week4-answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="clawcfv5n0004rsu8124g5nhn" data-title="week4-answer" class="article-share-link">Share</a>
       
       
       
@@ -150,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="claqnk6gs000aggu86flzblx4" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clawcfv61000nrsu8fndcgvb8" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
       
       
       
@@ -196,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="claqnk6gs0009ggu8bszs3bfa" data-title="week3 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clawcfv5o0005rsu8fugw36dg" data-title="week3 answer" class="article-share-link">Share</a>
       
       
       
@@ -241,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="claqnk6gm0001ggu8hpby0657" data-title="week1 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clawcfv5m0003rsu8fylqeodu" data-title="week1 answer" class="article-share-link">Share</a>
       
       
       
@@ -290,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="claqnk6gi0000ggu8bb0849w8" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="clawcfv5b0000rsu8629k9uvg" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
       
       
       
@@ -343,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="claqnk6gp0003ggu87586h7yn" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="clawcfv5i0001rsu8fxb280fp" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -368,7 +412,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li></ul>
     </div>
   </div>
 
@@ -378,7 +422,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 10px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a>
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 10px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a>
     </div>
   </div>
 
@@ -400,6 +444,10 @@
       <ul>
         
           <li>
+            <a href="/2022/11/25/week5-answer/">week5 answer</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/21/week4-answer/">week4-answer</a>
           </li>
         
@@ -413,10 +461,6 @@
         
           <li>
             <a href="/2022/11/07/week1%20answer/">week1 answer</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/04/ACM-Week2-answer-and-experience/">ACM Week2 团队作业</a>
           </li>
         
       </ul>
