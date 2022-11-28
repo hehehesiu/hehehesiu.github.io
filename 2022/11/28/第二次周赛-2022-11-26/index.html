@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第二次周赛 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成1.输出全排列朴实无华的dfs写法123456789101112131415161718192021222324252627#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int n;int vis[15],a[1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二次周赛">
+<meta property="og:url" content="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成1.输出全排列朴实无华的dfs写法123456789101112131415161718192021222324252627#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int n;int vis[15],a[1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-28T02:42:28.000Z">
+<meta property="article:modified_time" content="2022-11-28T03:27:09.028Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="周赛">
+<meta property="article:tag" content="第二次">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第二次周赛-2022-11-26" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" class="article-date">
+  <time class="dt-published" datetime="2022-11-28T02:42:28.000Z" itemprop="datePublished">2022-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第二次周赛
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成"><a href="#本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成" class="headerlink" title="本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成"></a>本次周赛主要考察了之前学习的dfs和bfs写法，前三题相对较容易，第四题需要通过思维将代码简化以减小复杂度，第五题通过引入三维数组完成</h2><h2 id="1-输出全排列"><a href="#1-输出全排列" class="headerlink" title="1.输出全排列"></a>1.<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1596491914696982528/exam/problems/1596492076261572608">输出全排列</a></h2><h3 id="朴实无华的dfs写法"><a href="#朴实无华的dfs写法" class="headerlink" title="朴实无华的dfs写法"></a>朴实无华的dfs写法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> vis[<span class="number">15</span>],a[<span class="number">15</span>]; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==n+<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a[i]);</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			a[x]=i;</span><br><span class="line">			vis[i]=<span class="number">1</span>;</span><br><span class="line">			<span class="built_in">dfs</span>(x+<span class="number">1</span>);</span><br><span class="line">			vis[i]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-山"><a href="#2-山" class="headerlink" title="2.山"></a>2.<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1596491914696982528/exam/problems/1596492076261572609">山</a></h2><h3 id="对每一格进行检查，若遇到山-1-cnt-1-并从此格开始搜索，同时进行挖平处理-改为0"><a href="#对每一格进行检查，若遇到山-1-cnt-1-并从此格开始搜索，同时进行挖平处理-改为0" class="headerlink" title="对每一格进行检查，若遇到山(1),cnt+1,并从此格开始搜索，同时进行挖平处理(改为0)"></a>对每一格进行检查，若遇到山(1),cnt+1,并从此格开始搜索，同时进行挖平处理(改为0)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,cnt;</span><br><span class="line"><span class="type">int</span> vis[<span class="number">2005</span>][<span class="number">2005</span>],a[<span class="number">2005</span>][<span class="number">2005</span>]; </span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>]=&#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,dy[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">	a[x][y]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">		<span class="type">int</span> nx=x+dx[i],ny=y+dy[i];</span><br><span class="line">		<span class="keyword">if</span>(nx&gt;=<span class="number">1</span>&amp;&amp;nx&lt;=n&amp;&amp;ny&gt;=<span class="number">1</span>&amp;&amp;ny&lt;=m&amp;&amp;a[nx][ny])&#123;</span><br><span class="line">			<span class="built_in">dfs</span>(nx,ny);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			cin&gt;&gt;a[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">				<span class="built_in">dfs</span>(i,j);</span><br><span class="line">				cnt++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;cnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-跳跃"><a href="#3-跳跃" class="headerlink" title="3.跳跃"></a>3.<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1596491914696982528/exam/problems/1596492076261572610">跳跃</a></h2><h3 id="从起点开始向上-x2F-下用dfs搜索，直至找到出口"><a href="#从起点开始向上-x2F-下用dfs搜索，直至找到出口" class="headerlink" title="从起点开始向上&#x2F;下用dfs搜索，直至找到出口"></a>从起点开始向上&#x2F;下用dfs搜索，直至找到出口</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,ans,st;</span><br><span class="line"><span class="type">int</span> m[<span class="number">50005</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">50005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m[x]==<span class="number">0</span>) &#123;</span><br><span class="line">		ans=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(x+m[x]&lt;n&amp;&amp;!vis[x+m[x]])&#123;</span><br><span class="line">		vis[x+m[x]]=<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">dfs</span>(x+m[x]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(x-m[x]&gt;=<span class="number">1</span>&amp;&amp;!vis[x-m[x]])&#123;</span><br><span class="line">		vis[x-m[x]]=<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">dfs</span>(x-m[x]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++) cin&gt;&gt;m[i];</span><br><span class="line">	cin&gt;&gt;st;</span><br><span class="line">	vis[st]=<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">dfs</span>(st);</span><br><span class="line">	<span class="keyword">if</span>(ans) cout&lt;&lt;<span class="string">&quot;True&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;False&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-回文数文回"><a href="#4-回文数文回" class="headerlink" title="4.回文数文回"></a>4.<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1596491914696982528/exam/problems/1596492076261572612">回文数文回</a></h2><h3 id="按照普通思路对结果一一列举容易超时，可以从回文数的形成入手，先指定前四位数，后四位数是前四位数的倒转，再对中间独立的数字依次列举组成九位数，若该九位数小于n，则cnt-；"><a href="#按照普通思路对结果一一列举容易超时，可以从回文数的形成入手，先指定前四位数，后四位数是前四位数的倒转，再对中间独立的数字依次列举组成九位数，若该九位数小于n，则cnt-；" class="headerlink" title="按照普通思路对结果一一列举容易超时，可以从回文数的形成入手，先指定前四位数，后四位数是前四位数的倒转，再对中间独立的数字依次列举组成九位数，若该九位数小于n，则cnt++；"></a>按照普通思路对结果一一列举容易超时，可以从回文数的形成入手，先指定前四位数，后四位数是前四位数的倒转，再对中间独立的数字依次列举组成九位数，若该九位数小于n，则cnt++；</h3><h3 id="由于只要前四位数小于n的前四位数，该九位数就一定小于n；因此每一个小于n的四位数都对应10种可能（第五位数有10种可能）；因此只需计算前四位数等于n的前四位数的可行数量：将前四位数指定为n的前四位数，后四位倒置，以此列举第五位数，判断是否小于n即可；"><a href="#由于只要前四位数小于n的前四位数，该九位数就一定小于n；因此每一个小于n的四位数都对应10种可能（第五位数有10种可能）；因此只需计算前四位数等于n的前四位数的可行数量：将前四位数指定为n的前四位数，后四位倒置，以此列举第五位数，判断是否小于n即可；" class="headerlink" title="由于只要前四位数小于n的前四位数，该九位数就一定小于n；因此每一个小于n的四位数都对应10种可能（第五位数有10种可能）；因此只需计算前四位数等于n的前四位数的可行数量：将前四位数指定为n的前四位数，后四位倒置，以此列举第五位数，判断是否小于n即可；"></a>由于只要前四位数小于n的前四位数，该九位数就一定小于n；因此每一个小于n的四位数都对应10种可能（第五位数有10种可能）；因此只需计算前四位数等于n的前四位数的可行数量：将前四位数指定为n的前四位数，后四位倒置，以此列举第五位数，判断是否小于n即可；</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">du</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;    <span class="comment">//倒置处理</span></span><br><span class="line">	<span class="type">int</span> y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="type">int</span> m=x%<span class="number">10</span>;x/=<span class="number">10</span>;</span><br><span class="line">		y=y*<span class="number">10</span>+m;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="type">int</span> a=n/<span class="number">100000</span>,b=n%<span class="number">100000</span>/<span class="number">10000</span>;</span><br><span class="line">	<span class="type">int</span> cnt=(a<span class="number">-1000</span>)*<span class="number">10</span>;   <span class="comment">//每10000个数就有1个回文数</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;i++)&#123;  <span class="comment">//前四位数与n相等的回文数</span></span><br><span class="line">		<span class="type">int</span> num=a*<span class="number">100000</span>+i*<span class="number">10000</span>+<span class="built_in">du</span>(a);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(num&lt;=n)&#123;</span><br><span class="line">			cnt++;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;cnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-最长光路"><a href="#5-最长光路" class="headerlink" title="5.最长光路"></a>5.<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1596491914696982528/exam/problems/1596492076261572611">最长光路</a></h2><h3 id="本题通过列举从不同方向射出的光线所能走过的最多格子，建立三维数组vis-x-y-u-x2F-r-x2F-d-x2F-l-通过dfs搜索，若vis-x-y-u-x2F-r-x2F-d-x2F-l-x3D-1-说明形成光环，结束搜索；若射出盒子或被吸收也结束搜索；"><a href="#本题通过列举从不同方向射出的光线所能走过的最多格子，建立三维数组vis-x-y-u-x2F-r-x2F-d-x2F-l-通过dfs搜索，若vis-x-y-u-x2F-r-x2F-d-x2F-l-x3D-1-说明形成光环，结束搜索；若射出盒子或被吸收也结束搜索；" class="headerlink" title="本题通过列举从不同方向射出的光线所能走过的最多格子，建立三维数组vis[x][y][u&#x2F;r&#x2F;d&#x2F;l],通过dfs搜索，若vis[x][y][u&#x2F;r&#x2F;d&#x2F;l]&#x3D;1,说明形成光环，结束搜索；若射出盒子或被吸收也结束搜索；"></a>本题通过列举从不同方向射出的光线所能走过的最多格子，建立三维数组vis[x][y][u&#x2F;r&#x2F;d&#x2F;l],通过dfs搜索，若vis[x][y][u&#x2F;r&#x2F;d&#x2F;l]&#x3D;1,说明形成光环，结束搜索；若射出盒子或被吸收也结束搜索；</h3><h3 id="将每次搜索所经过的格子总数与之前的最大值比较并更新，可将形成光环的格子总数设为INF，方便比较"><a href="#将每次搜索所经过的格子总数与之前的最大值比较并更新，可将形成光环的格子总数设为INF，方便比较" class="headerlink" title="将每次搜索所经过的格子总数与之前的最大值比较并更新，可将形成光环的格子总数设为INF，方便比较"></a>将每次搜索所经过的格子总数与之前的最大值比较并更新，可将形成光环的格子总数设为INF，方便比较</h3><h3 id="另外注意即使被吸收也要统计格子总数并比较"><a href="#另外注意即使被吸收也要统计格子总数并比较" class="headerlink" title="另外注意即使被吸收也要统计格子总数并比较"></a>另外注意即使被吸收也要统计格子总数并比较</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">0x3f3f3f</span>;</span><br><span class="line"><span class="type">int</span> n,m,sx,sy;</span><br><span class="line"><span class="type">int</span> ans,cnt,Max,num; </span><br><span class="line">string s;</span><br><span class="line"><span class="type">int</span> a[<span class="number">505</span>][<span class="number">505</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">505</span>][<span class="number">505</span>][<span class="number">4</span>];</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dx[<span class="number">5</span>]= &#123;<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;; <span class="comment">//分别对应上、右、下、左</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dy[<span class="number">5</span>]= &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> t)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> nx=x+dx[t],ny=y+dy[t];</span><br><span class="line">	<span class="keyword">if</span>(nx&lt;=<span class="number">0</span>||nx&gt;n||ny&lt;=<span class="number">0</span>||ny&gt;m)&#123;  <span class="comment">//射出盒子</span></span><br><span class="line">		ans=<span class="number">1</span>;<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(vis[nx][ny][t])&#123;        <span class="comment">//形成光环</span></span><br><span class="line">		ans=<span class="number">1</span>;cnt=INF;<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(a[nx][ny]==<span class="number">0</span>)&#123;    </span><br><span class="line">		cnt++;</span><br><span class="line">		vis[nx][ny][t]=<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">dfs</span>(nx,ny,t);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a[nx][ny]==<span class="number">1</span>)&#123;  <span class="comment">//被吸收</span></span><br><span class="line">		ans=<span class="number">1</span>;<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a[nx][ny]==<span class="number">2</span>)&#123;  <span class="comment">//遇到镜子1</span></span><br><span class="line">		cnt++;</span><br><span class="line">		<span class="keyword">if</span>(t==<span class="number">2</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">1</span>);<span class="comment">//右 </span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">4</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">3</span>);<span class="comment">//左 </span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">1</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">2</span>);<span class="comment">//上 </span></span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">dfs</span>(nx,ny,<span class="number">4</span>);<span class="comment">//下 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;                   <span class="comment">//遇到镜子2</span></span><br><span class="line">		cnt++;</span><br><span class="line">		<span class="keyword">if</span>(t==<span class="number">2</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">3</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">4</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(t==<span class="number">1</span>) <span class="built_in">dfs</span>(nx,ny,<span class="number">4</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">dfs</span>(nx,ny,<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		cin&gt;&gt;s;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;m; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;C&#x27;</span>) a[i][j+<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;.&#x27;</span>) a[i][j+<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;/&#x27;</span>) a[i][j+<span class="number">1</span>]=<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;\\&#x27;</span>) a[i][j+<span class="number">1</span>]=<span class="number">3</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cin&gt;&gt;sx&gt;&gt;sy;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">4</span>; i++) &#123;</span><br><span class="line">		ans=<span class="number">0</span>,cnt=<span class="number">1</span>;              <span class="comment">//注意每次搜索前都应初始化相关数据</span></span><br><span class="line">		<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in">sizeof</span>(vis));</span><br><span class="line">		vis[sx][sy][i]=<span class="number">1</span>;</span><br><span class="line">		<span class="built_in">dfs</span>(sx,sy,i);</span><br><span class="line">		<span class="keyword">if</span>(ans) &#123;</span><br><span class="line">			<span class="keyword">if</span>(cnt&gt;Max)&#123;       <span class="comment">//将形成光环时格子数量设为INF的便利之处</span></span><br><span class="line">				Max=cnt;</span><br><span class="line">				num=i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;U&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">2</span>) cout&lt;&lt;<span class="string">&quot;R&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">3</span>) cout&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">4</span>) cout&lt;&lt;<span class="string">&quot;L&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">if</span>(Max&lt;INF) cout&lt;&lt;Max&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;COOL&quot;</span>&lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" data-id="clb08c3od0009hku8b3fe0st6" data-title="第二次周赛" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/">第二次周赛</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/25/week5-answer/">week5 answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/21/week4-answer/">week4-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/">第一次周赛 2022-11-12</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

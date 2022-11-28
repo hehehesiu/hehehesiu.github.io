@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="vector:长度不确定的数组定义1234vector &lt;char&gt; v; &#x2F;&#x2F; vector默认长度是0， 类型可以是c++的标准类型，也可以是自己定义的类或结构体vector &lt;int&gt; v(N); &#x2F;&#x2F; 效果类似int v[N];但是N可以是变量vector &lt;int&gt; v(N, i); &#x2F;&#x2F; 可变数组最开始有N个元素，每个元素的值是i,i可以省略不写ve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记">
+<meta property="og:url" content="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vector:长度不确定的数组定义1234vector &lt;char&gt; v; &#x2F;&#x2F; vector默认长度是0， 类型可以是c++的标准类型，也可以是自己定义的类或结构体vector &lt;int&gt; v(N); &#x2F;&#x2F; 效果类似int v[N];但是N可以是变量vector &lt;int&gt; v(N, i); &#x2F;&#x2F; 可变数组最开始有N个元素，每个元素的值是i,i可以省略不写ve">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-25T14:40:29.000Z">
+<meta property="article:modified_time" content="2022-11-25T15:00:21.809Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-11-25T14:40:29.000Z" itemprop="datePublished">2022-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h2 id="长度不确定的数组"><a href="#长度不确定的数组" class="headerlink" title=":长度不确定的数组"></a>:长度不确定的数组</h2><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector &lt;<span class="type">char</span>&gt; v; <span class="comment">// vector默认长度是0， 类型可以是c++的标准类型，也可以是自己定义的类或结构体</span></span><br><span class="line">vector &lt;<span class="type">int</span>&gt; <span class="built_in">v</span>(N); <span class="comment">// 效果类似int v[N];但是N可以是变量</span></span><br><span class="line">vector &lt;<span class="type">int</span>&gt; <span class="built_in">v</span>(N, i); <span class="comment">// 可变数组最开始有N个元素，每个元素的值是i,i可以省略不写</span></span><br><span class="line">vector &lt; vector&lt;<span class="type">int</span>&gt; &gt; v; <span class="comment">// &gt; &gt; 分开写，有的编译器不分开会当成右移符合&gt;&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><h2 id="resize"><a href="#resize" class="headerlink" title="resize()"></a>resize()</h2><h2 id="push-back"><a href="#push-back" class="headerlink" title="push_back()"></a>push_back()</h2><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><p><strong>1.头文件</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span><span class="comment">// 队列 </span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span><span class="comment">//栈</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2.定义方式</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt;  s;<span class="comment">//参数也是数据类型，这是栈的定义方式</span></span><br><span class="line">queue&lt;<span class="type">int</span>&gt;  q; <span class="comment">//参数是数据类型，这是队列的定义方式</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt; &gt;q;  <span class="comment">//优先队列：从小到大</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,less&lt;<span class="type">int</span>&gt; &gt;q;   <span class="comment">//优先队列：从大到小</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.常用操作</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">栈：</span><br><span class="line">s.<span class="built_in">empty</span>()<span class="comment">//如果栈为空返回true，否则返回false  </span></span><br><span class="line">s.<span class="built_in">size</span>()<span class="comment">//返回栈中元素的个数  </span></span><br><span class="line">s.<span class="built_in">pop</span>()<span class="comment">//删除栈顶元素但不返回其值  </span></span><br><span class="line">s.<span class="built_in">top</span>()<span class="comment">//返回栈顶的元素，但不删除该元素  </span></span><br><span class="line">s.<span class="built_in">push</span>(X)<span class="comment">//在栈顶压入新元素 ，参数X为要压入的元素</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">队列：</span><br><span class="line">q.<span class="built_in">empty</span>()<span class="comment">// 如果队列为空返回true，否则返回false  </span></span><br><span class="line">q.<span class="built_in">size</span>() <span class="comment">// 返回队列中元素的个数  </span></span><br><span class="line">q.<span class="built_in">pop</span>()  <span class="comment">//删除队列首元素但不返回其值  </span></span><br><span class="line">q.<span class="built_in">front</span>()  <span class="comment">// 返回队首元素的值，但不删除该元素  </span></span><br><span class="line">q.<span class="built_in">push</span>(X) <span class="comment">//在队尾压入新元素 ，X为要压入的元素</span></span><br><span class="line">q.<span class="built_in">back</span>() <span class="comment">//返回队列尾元素的值，但不删除该元素  </span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/" data-id="clb08c3oa0006hku80jko756l" data-title="笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第二次周赛
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/25/week5-answer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">week5 answer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/">第二次周赛</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/25/week5-answer/">week5 answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/21/week4-answer/">week4-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/">第一次周赛 2022-11-12</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
