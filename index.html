@@ -71,6 +71,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-week6-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/29/week6-answer/" class="article-date">
+  <time class="dt-published" datetime="2022-11-29T02:44:35.000Z" itemprop="datePublished">2022-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/29/week6-answer/">week6 answer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周学习了贪心算法的基础知识以及熟悉了stl的基本操作，贪心算法主要通过思维简化题意和代码，本周题目较简单，难度不大，但有思考量"><a href="#本周学习了贪心算法的基础知识以及熟悉了stl的基本操作，贪心算法主要通过思维简化题意和代码，本周题目较简单，难度不大，但有思考量" class="headerlink" title="本周学习了贪心算法的基础知识以及熟悉了stl的基本操作，贪心算法主要通过思维简化题意和代码，本周题目较简单，难度不大，但有思考量"></a>本周学习了贪心算法的基础知识以及熟悉了stl的基本操作，贪心算法主要通过思维简化题意和代码，本周题目较简单，难度不大，但有思考量</h2><h2 id="1-P1199-NOIP2010-普及组-三国游戏"><a href="#1-P1199-NOIP2010-普及组-三国游戏" class="headerlink" title="1.P1199 [NOIP2010 普及组] 三国游戏 "></a>1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1199">P1199 [NOIP2010 普及组] 三国游戏 </a></h2><h3 id="本题涵盖博弈论的相关知识，由于计算机一方选择武将的原则是尽量破坏对手下一步将形成的最强组合，因此我们不可能选出默契值最大的组合，但我们可以选择默契值次大的组合；考虑先选择该组合中的一个，而计算机选择对应的最强组合，我们就能选择次强组合。"><a href="#本题涵盖博弈论的相关知识，由于计算机一方选择武将的原则是尽量破坏对手下一步将形成的最强组合，因此我们不可能选出默契值最大的组合，但我们可以选择默契值次大的组合；考虑先选择该组合中的一个，而计算机选择对应的最强组合，我们就能选择次强组合。" class="headerlink" title="本题涵盖博弈论的相关知识，由于计算机一方选择武将的原则是尽量破坏对手下一步将形成的最强组合，因此我们不可能选出默契值最大的组合，但我们可以选择默契值次大的组合；考虑先选择该组合中的一个，而计算机选择对应的最强组合，我们就能选择次强组合。"></a>本题涵盖博弈论的相关知识，由于计算机一方选择武将的原则是尽量破坏对手下一步将形成的最强组合，因此我们不可能选出默契值最大的组合，但我们可以选择默契值次大的组合；考虑先选择该组合中的一个，而计算机选择对应的最强组合，我们就能选择次强组合。</h3><h3 id="总之，我们一定能获胜，因为我们选择了次强组合，而默契值只需要我们通过比较每个武将对应的次大默契值即可。"><a href="#总之，我们一定能获胜，因为我们选择了次强组合，而默契值只需要我们通过比较每个武将对应的次大默契值即可。" class="headerlink" title="总之，我们一定能获胜，因为我们选择了次强组合，而默契值只需要我们通过比较每个武将对应的次大默契值即可。"></a>总之，我们一定能获胜，因为我们选择了次强组合，而默契值只需要我们通过比较每个武将对应的次大默契值即可。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,num,Max;</span><br><span class="line"><span class="type">int</span> vis[<span class="number">505</span>];</span><br><span class="line"><span class="type">int</span> q[<span class="number">505</span>][<span class="number">505</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">			cin&gt;&gt;num;</span><br><span class="line">			q[i][j]=q[j][i]=num;    <span class="comment">//存入默契值</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">sort</span>(q[i]+<span class="number">1</span>,q[i]+n+<span class="number">1</span>,<span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;()); <span class="comment">//从大到小排序</span></span><br><span class="line">		Max=<span class="built_in">max</span>(Max,q[i][<span class="number">2</span>]);         <span class="comment">//比较所有次大默契值，选出其中最大</span></span><br><span class="line">	&#125;	</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;1&quot;</span>&lt;&lt;endl&lt;&lt;Max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-独木桥"><a href="#2-独木桥" class="headerlink" title="2.独木桥"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1007">独木桥</a></h2><h3 id="要求最短时间的话，需要让桥左侧的士兵向左侧撤离，靠右侧的士兵向右侧撤离，这样不会出现相向而行的情况，时间最短；"><a href="#要求最短时间的话，需要让桥左侧的士兵向左侧撤离，靠右侧的士兵向右侧撤离，这样不会出现相向而行的情况，时间最短；" class="headerlink" title="要求最短时间的话，需要让桥左侧的士兵向左侧撤离，靠右侧的士兵向右侧撤离，这样不会出现相向而行的情况，时间最短；"></a>要求最短时间的话，需要让桥左侧的士兵向左侧撤离，靠右侧的士兵向右侧撤离，这样不会出现相向而行的情况，时间最短；</h3><h3 id="要求最长时间，可以将士兵相遇看做士兵“穿过”对方，这样要使每个士兵撤离时间最长，就让靠左侧的士兵向右侧撤离，靠右侧的士兵向左侧撤离。"><a href="#要求最长时间，可以将士兵相遇看做士兵“穿过”对方，这样要使每个士兵撤离时间最长，就让靠左侧的士兵向右侧撤离，靠右侧的士兵向左侧撤离。" class="headerlink" title="要求最长时间，可以将士兵相遇看做士兵“穿过”对方，这样要使每个士兵撤离时间最长，就让靠左侧的士兵向右侧撤离，靠右侧的士兵向左侧撤离。"></a>要求最长时间，可以将士兵相遇看做士兵“穿过”对方，这样要使每个士兵撤离时间最长，就让靠左侧的士兵向右侧撤离，靠右侧的士兵向左侧撤离。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">5005</span>],b[<span class="number">5005</span>],c[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> l,n;</span><br><span class="line">	cin&gt;&gt;l&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i];</span><br><span class="line">		b[i]=<span class="built_in">min</span>(l+<span class="number">1</span>-a[i],a[i]);  <span class="comment">//数组b[]储存每个士兵撤离的最短时间</span></span><br><span class="line">		c[i]=<span class="built_in">max</span>(l+<span class="number">1</span>-a[i],a[i]);  <span class="comment">//数组b[]储存每个士兵撤离的最长时间</span></span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">sort</span>(b+<span class="number">1</span>,b+n+<span class="number">1</span>);<span class="built_in">sort</span>(c+<span class="number">1</span>,c+<span class="number">1</span>+n); <span class="comment">//从小到大排序</span></span><br><span class="line">	cout&lt;&lt;b[n]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;c[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-排队接水"><a href="#3-排队接水" class="headerlink" title="3.排队接水"></a>3.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1223">排队接水</a></h2><h3 id="只需让接水时间短的人先接水，时间长的人后接水，即可使平均等待时间最短"><a href="#只需让接水时间短的人先接水，时间长的人后接水，即可使平均等待时间最短" class="headerlink" title="只需让接水时间短的人先接水，时间长的人后接水，即可使平均等待时间最短"></a>只需让接水时间短的人先接水，时间长的人后接水，即可使平均等待时间最短</h3><h3 id="本题主要练习结构体排序"><a href="#本题主要练习结构体排序" class="headerlink" title="本题主要练习结构体排序"></a>本题主要练习结构体排序</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">tt</span>&#123;              <span class="comment">//通过结构体记录每个人的序号和接水时间</span></span><br><span class="line">	<span class="type">int</span> id;<span class="type">double</span> time;</span><br><span class="line">&#125;a[<span class="number">1000005</span>];</span><br><span class="line"><span class="type">int</span> n;<span class="type">double</span> sum,ave;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(tt a,tt b)</span></span>&#123;      <span class="comment">//结构体排序参数</span></span><br><span class="line">	<span class="keyword">return</span> a.time&lt;b.time;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i].id=i;cin&gt;&gt;a[i].time;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>,cmp);   <span class="comment">//用sort对结构体进行排序</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cout&lt;&lt;a[i].id&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">		sum+=a[i].time*(n-i);</span><br><span class="line">	&#125; </span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2lf&quot;</span>,sum/n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-P1090-NOIP2004-提高组-合并果子-x2F-USACO06NOV-Fence-Repair-G"><a href="#4-P1090-NOIP2004-提高组-合并果子-x2F-USACO06NOV-Fence-Repair-G" class="headerlink" title="4.P1090 [NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G"></a>4.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1090">P1090 [NOIP2004 提高组] 合并果子 &#x2F; [USACO06NOV] Fence Repair G</a></h2><h3 id="每次将数量最小的两个果堆合并即可得到最终答案"><a href="#每次将数量最小的两个果堆合并即可得到最终答案" class="headerlink" title="每次将数量最小的两个果堆合并即可得到最终答案"></a>每次将数量最小的两个果堆合并即可得到最终答案</h3><h3 id="可以用优先队列储存所有果堆并从小到大排序，每次合并队列的最上方两个数据，合并后在存入队列，同时累计体力耗费值"><a href="#可以用优先队列储存所有果堆并从小到大排序，每次合并队列的最上方两个数据，合并后在存入队列，同时累计体力耗费值" class="headerlink" title="可以用优先队列储存所有果堆并从小到大排序，每次合并队列的最上方两个数据，合并后在存入队列，同时累计体力耗费值"></a>可以用优先队列储存所有果堆并从小到大排序，每次合并队列的最上方两个数据，合并后在存入队列，同时累计体力耗费值</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,num,x,y,sum;</span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt; &gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		cin&gt;&gt;num;</span><br><span class="line">		q.<span class="built_in">push</span>(num); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(q.<span class="built_in">size</span>()&gt;=<span class="number">2</span>)&#123;</span><br><span class="line">		x=q.<span class="built_in">top</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">		y=q.<span class="built_in">top</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">		sum+=x+y;    </span><br><span class="line">		q.<span class="built_in">push</span>(x+y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/29/week6-answer/" data-id="clb1n7yuv000a8ku80wse0j02" data-title="week6 answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-第二次周赛-2022-11-26" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" class="article-date">
@@ -108,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" data-id="clb08c3od0009hku8b3fe0st6" data-title="第二次周赛" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" data-id="clb1n7yvb000t8ku84xv5321t" data-title="第二次周赛" class="article-share-link">Share</a>
       
       
       
@@ -158,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/" data-id="clb08c3oa0006hku80jko756l" data-title="笔记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/" data-id="clb1n7yut00088ku8a543293f" data-title="笔记" class="article-share-link">Share</a>
       
       
       
@@ -200,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/25/week5-answer/" data-id="clb08c3o90005hku89mb65bq3" data-title="week5 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/25/week5-answer/" data-id="clb1n7yuq00058ku8edn463gw" data-title="week5 answer" class="article-share-link">Share</a>
       
       
       
@@ -244,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="clb08c3oc0008hku89o9ucukc" data-title="week4-answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="clb1n7yuo00048ku896xi0aju" data-title="week4-answer" class="article-share-link">Share</a>
       
       
       
@@ -293,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clb08c3of000bhku822zk5dp7" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clb1n7yvc000u8ku88xxe8ifb" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
       
       
       
@@ -339,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clb08c3o80004hku87boweihv" data-title="week3 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clb1n7yuh00018ku8e742hws2" data-title="week3 answer" class="article-share-link">Share</a>
       
       
       
@@ -384,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clb08c3o30002hku88vk17rzg" data-title="week1 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clb1n7yus00078ku80bd26zwx" data-title="week1 answer" class="article-share-link">Share</a>
       
       
       
@@ -433,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="clb08c3nz0001hku805icbgyh" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="clb1n7yu300008ku882jg3xzh" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
       
       
       
@@ -486,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="clb08c3nq0000hku88nkxd55x" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/31/hello-world/" data-id="clb1n7yum00038ku846iwds1e" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -511,7 +557,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
     </div>
   </div>
 
@@ -521,7 +567,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
     </div>
   </div>
 
@@ -543,6 +589,10 @@
       <ul>
         
           <li>
+            <a href="/2022/11/29/week6-answer/">week6 answer</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/">第二次周赛</a>
           </li>
         
@@ -556,10 +606,6 @@
         
           <li>
             <a href="/2022/11/21/week4-answer/">week4-answer</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/">第一次周赛 2022-11-12</a>
           </li>
         
       </ul>
