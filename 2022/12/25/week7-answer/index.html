@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>week7 answer | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.采药res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);此代码为初学时用dfs遍历，有所不同1234567891011121314151617181920212223242526272829#include &lt;bits&#x2F;stdc++.h&gt;using namespace s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week7 answer">
+<meta property="og:url" content="http://example.com/2022/12/25/week7-answer/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.采药res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);此代码为初学时用dfs遍历，有所不同1234567891011121314151617181920212223242526272829#include &lt;bits&#x2F;stdc++.h&gt;using namespace s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-25T07:56:23.000Z">
+<meta property="article:modified_time" content="2022-12-25T08:08:35.343Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="week7">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-week7-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/25/week7-answer/" class="article-date">
+  <time class="dt-published" datetime="2022-12-25T07:56:23.000Z" itemprop="datePublished">2022-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      week7 answer
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-采药"><a href="#1-采药" class="headerlink" title="1.采药"></a>1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1048">采药</a></h2><h3 id="res-i-j-表示采i颗药时还有j时间，状态方程为res-i-j-x3D-max-res-i-1-j-res-i-1-j-ti-i-v-i"><a href="#res-i-j-表示采i颗药时还有j时间，状态方程为res-i-j-x3D-max-res-i-1-j-res-i-1-j-ti-i-v-i" class="headerlink" title="res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);"></a>res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);</h3><h3 id="此代码为初学时用dfs遍历，有所不同"><a href="#此代码为初学时用dfs遍历，有所不同" class="headerlink" title="此代码为初学时用dfs遍历，有所不同"></a>此代码为初学时用dfs遍历，有所不同</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> res[<span class="number">105</span>][<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> ti[<span class="number">1005</span>],v[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(res[i][j]!=<span class="number">-1</span>) ans=res[i][j];</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">0</span>) &#123;</span><br><span class="line">		res[i][j]=<span class="number">0</span>;</span><br><span class="line">		ans=<span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(ti[i]&gt;j) &#123;</span><br><span class="line">		res[i][j]=<span class="built_in">dfs</span>(i<span class="number">-1</span>,j);</span><br><span class="line">		ans=res[i][j];</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		res[i][j]=<span class="built_in">max</span>(<span class="built_in">dfs</span>(i<span class="number">-1</span>,j),<span class="built_in">dfs</span>(i<span class="number">-1</span>,j-ti[i])+v[i]);</span><br><span class="line">		ans=res[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t,m;</span><br><span class="line">	<span class="built_in">memset</span>(res,<span class="number">-1</span>,<span class="built_in">sizeof</span>(res));</span><br><span class="line">	cin&gt;&gt;t&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		cin&gt;&gt;ti[i]&gt;&gt;v[i];</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="built_in">dfs</span>(m,t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-最长上升子序列"><a href="#2-最长上升子序列" class="headerlink" title="2.最长上升子序列"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3637">最长上升子序列</a></h2><h3 id="如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。"><a href="#如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。" class="headerlink" title="如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。"></a>如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。</h3><h3 id="例如一组数据：1-2-4-1-3-4。"><a href="#例如一组数据：1-2-4-1-3-4。" class="headerlink" title="例如一组数据：1,2,4,1,3,4。"></a>例如一组数据：1,2,4,1,3,4。</h3><h3 id="我们知道，1-2-3-为一个上升子序列，但是-3-后面的-4-和这个上升子序列拼接后可以组成一个更长的上升子序列。"><a href="#我们知道，1-2-3-为一个上升子序列，但是-3-后面的-4-和这个上升子序列拼接后可以组成一个更长的上升子序列。" class="headerlink" title="我们知道，1,2,3 为一个上升子序列，但是 3 后面的 4 和这个上升子序列拼接后可以组成一个更长的上升子序列。"></a>我们知道，1,2,3 为一个上升子序列，但是 3 后面的 4 和这个上升子序列拼接后可以组成一个更长的上升子序列。</h3><h3 id="所以，我们可以设计-f-i-，表示以第-i-个数为结尾的最长上升子序列的长度。"><a href="#所以，我们可以设计-f-i-，表示以第-i-个数为结尾的最长上升子序列的长度。" class="headerlink" title="所以，我们可以设计 f(i)，表示以第 i 个数为结尾的最长上升子序列的长度。"></a>所以，我们可以设计 f(i)，表示以第 i 个数为结尾的最长上升子序列的长度。</h3><h3 id="再以上面的数据为例子，就可以列出表格："><a href="#再以上面的数据为例子，就可以列出表格：" class="headerlink" title="再以上面的数据为例子，就可以列出表格："></a>再以上面的数据为例子，就可以列出表格：</h3><p> n	1 	2 	3 	4 	5 	6<br>an	1 	2 	4 	1 	3 	4<br>f(n)1 	2 	3 	1 	3 	4</p>
+<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><pre><code>读入数据；
+
+大循环开始，从 1 到 n，计算 fifi​，记得初始值是 1；
+
+小循环，从 1 到 i−1，如果 ajaj​ 小于 aiai​ 的话，说明这个数可以和 fifi​ 组成上升子序列，则 fifi​ 取 max⁡(fi,fj+1)max(fi​,fj​+1)；
+
+寻找最大值；
+</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t[<span class="number">5005</span>];</span><br><span class="line"><span class="type">int</span> f[<span class="number">5005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		cin&gt;&gt;t[i];f[i]=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i<span class="number">-1</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(t[j]&lt;t[i]) f[i]=<span class="built_in">max</span>(f[i],f[j]+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.<a href=""></a></h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.<a href=""></a></h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/25/week7-answer/" data-id="clc339ukd000fp8u8dndy9x18" data-title="week7 answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week7/" rel="tag">week7</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">“第三次周赛”</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week7/" rel="tag">week7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/week7/" style="font-size: 10px;">week7</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/25/week7-answer/">week7 answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/">“第三次周赛”</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/29/week6-answer/">week6 answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/">第二次周赛</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

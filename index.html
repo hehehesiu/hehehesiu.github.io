@@ -71,6 +71,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-week7-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/25/week7-answer/" class="article-date">
+  <time class="dt-published" datetime="2022-12-25T07:56:23.000Z" itemprop="datePublished">2022-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/12/25/week7-answer/">week7 answer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-采药"><a href="#1-采药" class="headerlink" title="1.采药"></a>1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1048">采药</a></h2><h3 id="res-i-j-表示采i颗药时还有j时间，状态方程为res-i-j-x3D-max-res-i-1-j-res-i-1-j-ti-i-v-i"><a href="#res-i-j-表示采i颗药时还有j时间，状态方程为res-i-j-x3D-max-res-i-1-j-res-i-1-j-ti-i-v-i" class="headerlink" title="res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);"></a>res[i][j]表示采i颗药时还有j时间，状态方程为res[i][j]&#x3D;max(res[i-1][j],res[i-1][j-ti[i]]+v[i]);</h3><h3 id="此代码为初学时用dfs遍历，有所不同"><a href="#此代码为初学时用dfs遍历，有所不同" class="headerlink" title="此代码为初学时用dfs遍历，有所不同"></a>此代码为初学时用dfs遍历，有所不同</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> res[<span class="number">105</span>][<span class="number">1005</span>];</span><br><span class="line"><span class="type">int</span> ti[<span class="number">1005</span>],v[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> ans;</span><br><span class="line">	<span class="keyword">if</span>(res[i][j]!=<span class="number">-1</span>) ans=res[i][j];</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">0</span>) &#123;</span><br><span class="line">		res[i][j]=<span class="number">0</span>;</span><br><span class="line">		ans=<span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span>(ti[i]&gt;j) &#123;</span><br><span class="line">		res[i][j]=<span class="built_in">dfs</span>(i<span class="number">-1</span>,j);</span><br><span class="line">		ans=res[i][j];</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		res[i][j]=<span class="built_in">max</span>(<span class="built_in">dfs</span>(i<span class="number">-1</span>,j),<span class="built_in">dfs</span>(i<span class="number">-1</span>,j-ti[i])+v[i]);</span><br><span class="line">		ans=res[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t,m;</span><br><span class="line">	<span class="built_in">memset</span>(res,<span class="number">-1</span>,<span class="built_in">sizeof</span>(res));</span><br><span class="line">	cin&gt;&gt;t&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		cin&gt;&gt;ti[i]&gt;&gt;v[i];</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="built_in">dfs</span>(m,t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-最长上升子序列"><a href="#2-最长上升子序列" class="headerlink" title="2.最长上升子序列"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3637">最长上升子序列</a></h2><h3 id="如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。"><a href="#如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。" class="headerlink" title="如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。"></a>如果一个上升子序列的最大值小于一个在它后面的数，那么这个数和这个子序列可以拼成一个更长的上升子序列。</h3><h3 id="例如一组数据：1-2-4-1-3-4。"><a href="#例如一组数据：1-2-4-1-3-4。" class="headerlink" title="例如一组数据：1,2,4,1,3,4。"></a>例如一组数据：1,2,4,1,3,4。</h3><h3 id="我们知道，1-2-3-为一个上升子序列，但是-3-后面的-4-和这个上升子序列拼接后可以组成一个更长的上升子序列。"><a href="#我们知道，1-2-3-为一个上升子序列，但是-3-后面的-4-和这个上升子序列拼接后可以组成一个更长的上升子序列。" class="headerlink" title="我们知道，1,2,3 为一个上升子序列，但是 3 后面的 4 和这个上升子序列拼接后可以组成一个更长的上升子序列。"></a>我们知道，1,2,3 为一个上升子序列，但是 3 后面的 4 和这个上升子序列拼接后可以组成一个更长的上升子序列。</h3><h3 id="所以，我们可以设计-f-i-，表示以第-i-个数为结尾的最长上升子序列的长度。"><a href="#所以，我们可以设计-f-i-，表示以第-i-个数为结尾的最长上升子序列的长度。" class="headerlink" title="所以，我们可以设计 f(i)，表示以第 i 个数为结尾的最长上升子序列的长度。"></a>所以，我们可以设计 f(i)，表示以第 i 个数为结尾的最长上升子序列的长度。</h3><h3 id="再以上面的数据为例子，就可以列出表格："><a href="#再以上面的数据为例子，就可以列出表格：" class="headerlink" title="再以上面的数据为例子，就可以列出表格："></a>再以上面的数据为例子，就可以列出表格：</h3><p> n	1 	2 	3 	4 	5 	6<br>an	1 	2 	4 	1 	3 	4<br>f(n)1 	2 	3 	1 	3 	4</p>
+<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><pre><code>读入数据；
+
+大循环开始，从 1 到 n，计算 fifi​，记得初始值是 1；
+
+小循环，从 1 到 i−1，如果 ajaj​ 小于 aiai​ 的话，说明这个数可以和 fifi​ 组成上升子序列，则 fifi​ 取 max⁡(fi,fj+1)max(fi​,fj​+1)；
+
+寻找最大值；
+</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t[<span class="number">5005</span>];</span><br><span class="line"><span class="type">int</span> f[<span class="number">5005</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		cin&gt;&gt;t[i];f[i]=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i<span class="number">-1</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(t[j]&lt;t[i]) f[i]=<span class="built_in">max</span>(f[i],f[j]+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.<a href=""></a></h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.<a href=""></a></h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/25/week7-answer/" data-id="clc339ukd000fp8u8dndy9x18" data-title="week7 answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week7/" rel="tag">week7</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-第三次周赛-2022-12-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/" class="article-date">
@@ -106,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/" data-id="clc32b5kd000e78u8afn60l18" data-title="“第三次周赛”" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/" data-id="clc339ukf000hp8u8c5z7ej33" data-title="“第三次周赛”" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/29/week6-answer/" data-id="clc32b5k9000978u88up65x1p" data-title="week6 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/29/week6-answer/" data-id="clc339uk70008p8u808i2avbn" data-title="week6 answer" class="article-share-link">Share</a>
       
       
       
@@ -203,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" data-id="clc32b5kz001278u86qeo3g15" data-title="第二次周赛" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/28/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-26/" data-id="clc339ukv0013p8u85x3g024s" data-title="第二次周赛" class="article-share-link">Share</a>
       
       
       
@@ -253,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/" data-id="clc32b5kc000c78u831lc1qfr" data-title="笔记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/25/%E7%AC%94%E8%AE%B0/" data-id="clc339uk9000ap8u82tyf4r1w" data-title="笔记" class="article-share-link">Share</a>
       
       
       
@@ -295,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/25/week5-answer/" data-id="clc32b5k5000578u8cv2ifr8m" data-title="week5 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/25/week5-answer/" data-id="clc339uk60007p8u8f5jc3myh" data-title="week5 answer" class="article-share-link">Share</a>
       
       
       
@@ -339,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="clc32b5k7000878u84roc09yy" data-title="week4-answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/21/week4-answer/" data-id="clc339uk40005p8u8d51002lf" data-title="week4-answer" class="article-share-link">Share</a>
       
       
       
@@ -388,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clc32b5ka000b78u82mhfb271" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/15/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-11-12/" data-id="clc339ukb000cp8u8405kd605" data-title="第一次周赛 2022-11-12" class="article-share-link">Share</a>
       
       
       
@@ -434,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clc32b5jv000178u8g8dlb7wg" data-title="week3 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/09/week3-answer/" data-id="clc339uk30004p8u8akok82ti" data-title="week3 answer" class="article-share-link">Share</a>
       
       
       
@@ -479,60 +535,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clc32b5jl000078u8e3gjcc6b" data-title="week1 answer" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/07/week1%20answer/" data-id="clc339uju0001p8u8aljoh5b1" data-title="week1 answer" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week1/" rel="tag">week1</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ACM-Week2-answer-and-experience" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/04/ACM-Week2-answer-and-experience/" class="article-date">
-  <time class="dt-published" datetime="2022-11-04T10:08:29.000Z" itemprop="datePublished">2022-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/04/ACM-Week2-answer-and-experience/">ACM Week2 团队作业</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="本周学习二分法，通过二分法验证正确答案"><a href="#本周学习二分法，通过二分法验证正确答案" class="headerlink" title="本周学习二分法，通过二分法验证正确答案"></a>本周学习二分法，通过二分法验证正确答案</h2><h2 id="二分答案前提：答案在一个区间内；直接搜索不好搜；"><a href="#二分答案前提：答案在一个区间内；直接搜索不好搜；" class="headerlink" title="二分答案前提：答案在一个区间内；直接搜索不好搜；"></a>二分答案前提：答案在一个区间内；直接搜索不好搜；</h2><h2 id="二分答案特征：最大的最小，最小的最大"><a href="#二分答案特征：最大的最小，最小的最大" class="headerlink" title="二分答案特征：最大的最小，最小的最大"></a>二分答案特征：最大的最小，最小的最大</h2><h3 id="1-【深基13-例1】查找"><a href="#1-【深基13-例1】查找" class="headerlink" title="1.【深基13.例1】查找"></a>1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">【深基13.例1】查找</a></h3><p>通过二分法寻找结果，定义区间为[l,r]，以mid将区间分为左右两部分，若mid大于所寻找的数，则数在左半部分，否则在右半部分</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m,number;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;number);</span><br><span class="line">		<span class="type">int</span> l=<span class="number">1</span>,r=n;</span><br><span class="line">		<span class="type">int</span> mid,ans;</span><br><span class="line">		<span class="keyword">while</span>(l&lt;r)&#123;                        <span class="comment">//二分法</span></span><br><span class="line">			<span class="keyword">if</span>(a[l]&gt;=number) <span class="keyword">break</span>;</span><br><span class="line">			mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(a[mid]&gt;=number) r=mid;</span><br><span class="line">			<span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[l]==number) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,l); <span class="comment">//这里l是数的位置</span></span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;-1 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-进击的奶牛"><a href="#2-进击的奶牛" class="headerlink" title="2.进击的奶牛"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1824">进击的奶牛</a></h3><p>解该题直接计算最大的最小距离难度较大<br>可通过二分法列举最近距离，并用函数check验证</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> n,c,l,r,mid;<span class="type">long</span> <span class="type">long</span> ans;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">check</span><span class="params">(<span class="type">long</span> <span class="type">long</span> f[],<span class="type">long</span> <span class="type">long</span> t,<span class="type">long</span> <span class="type">long</span> c)</span></span>&#123; <span class="comment">//贪心算法计算在该最小距离内最多放几头牛</span></span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> now=<span class="number">1</span>,count=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;             <span class="comment">//第一个位置放一头牛，到下一个可行位置放下一头牛</span></span><br><span class="line">		<span class="keyword">if</span>(a[i]&gt;=a[now]+t)&#123;</span><br><span class="line">			now=i;count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(count&gt;=c) <span class="keyword">return</span> <span class="number">1</span>;                     <span class="comment">//若最大值大于实际值，则可行</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>,&amp;n,&amp;c);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;a[i]);</span><br><span class="line">	<span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>);</span><br><span class="line">	l=<span class="number">1</span>;r=<span class="number">1e9</span>;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;=r)&#123;                               <span class="comment">//二分法寻找最大的最小距离</span></span><br><span class="line">		mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(a,mid,c))&#123;</span><br><span class="line">			l=mid+<span class="number">1</span>;ans=mid;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">else</span> r=mid<span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-NOIP2015-提高组-跳石头"><a href="#3-NOIP2015-提高组-跳石头" class="headerlink" title="3.[NOIP2015 提高组] 跳石头"></a>3.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">[NOIP2015 提高组] 跳石头</a></h3><p>与上一题同，通过二分法列举最大的最短跳跃距离，并用函数验证是否可行</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> m,n;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> L,l,r,ans;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> s[<span class="number">100005</span>];<span class="type">long</span> <span class="type">long</span> b[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">check</span><span class="params">(<span class="type">long</span> <span class="type">long</span> s[],<span class="type">long</span> <span class="type">long</span> mid,<span class="type">int</span> m)</span></span>&#123; <span class="comment">//函数验证该距离是否可行</span></span><br><span class="line">	<span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">		b[i]=s[i]; <span class="comment">//避免更改原数组</span></span><br><span class="line">		<span class="keyword">if</span>(b[i]-b[i<span class="number">-1</span>]&lt;mid) &#123;            <span class="comment">//若该石头与前一块石头间的距离小于最短距离，则移除</span></span><br><span class="line">			b[i]=b[i<span class="number">-1</span>];                 <span class="comment">//下一块石头与前一块石头距离变为与前两块石头的距离</span></span><br><span class="line">			count++;                     <span class="comment">//统计移除石头的数量</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(count&lt;=m) <span class="keyword">return</span> <span class="number">1</span>;             <span class="comment">//比较实际移除石头数量与可移除石头的数量，若不大于则可行</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%d%d&quot;</span>,&amp;L,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;s[i]);</span><br><span class="line">	s[n+<span class="number">1</span>]=L;</span><br><span class="line">	l=<span class="number">1</span>;r=L;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;=r)&#123;                <span class="comment">//二分法列举距离</span></span><br><span class="line">		<span class="type">long</span> <span class="type">long</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(s,mid,m))&#123;</span><br><span class="line">			l=mid+<span class="number">1</span>;ans=<span class="built_in">max</span>(ans,mid);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> r=mid<span class="number">-1</span>;</span><br><span class="line">		<span class="comment">//printf(&quot;%lld %lld %lld\n&quot;,l,mid,r);</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/04/ACM-Week2-answer-and-experience/" data-id="clc32b5k1000378u8gsff0j5x" data-title="ACM Week2 团队作业" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li></ul>
 
     </footer>
   </div>
@@ -560,7 +567,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week7/" rel="tag">week7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
     </div>
   </div>
 
@@ -570,7 +577,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+      <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/week7/" style="font-size: 10px;">week7</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
     </div>
   </div>
 
@@ -592,6 +599,10 @@
       <ul>
         
           <li>
+            <a href="/2022/12/25/week7-answer/">week7 answer</a>
+          </li>
+        
+          <li>
             <a href="/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/">“第三次周赛”</a>
           </li>
         
@@ -605,10 +616,6 @@
         
           <li>
             <a href="/2022/11/25/%E7%AC%94%E8%AE%B0/">笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/25/week5-answer/">week5 answer</a>
           </li>
         
       </ul>
