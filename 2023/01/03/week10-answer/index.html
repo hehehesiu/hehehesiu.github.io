@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>week10-answer | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Einstein学画画欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点&#x2F;2就是答案若奇点为0，答案为1；12345678910111213141516171819#include &lt;bits&#x2F;s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week10-answer">
+<meta property="og:url" content="http://example.com/2023/01/03/week10-answer/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Einstein学画画欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点&#x2F;2就是答案若奇点为0，答案为1；12345678910111213141516171819#include &lt;bits&#x2F;s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-03T02:32:31.000Z">
+<meta property="article:modified_time" content="2023-01-09T07:20:45.369Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="week10">
+<meta property="article:tag" content="answer">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-week10-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/03/week10-answer/" class="article-date">
+  <time class="dt-published" datetime="2023-01-03T02:32:31.000Z" itemprop="datePublished">2023-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      week10-answer
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Einstein学画画"><a href="#Einstein学画画" class="headerlink" title="Einstein学画画"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1636">Einstein学画画</a></h2><h3 id="欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路"><a href="#欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路" class="headerlink" title="欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路"></a>欧拉路：若从起点到终点的路径恰通过图中每条边一次，则该路径称为欧拉路</h3><h3 id="存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）"><a href="#存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）" class="headerlink" title="存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）"></a>存在欧拉路的条件：图是联通的，且存在2个奇点（顶点度数为奇数）（顶点度数指和该顶点相关联的边数，包括出度和入度）</h3><h3 id="本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点-x2F-2就是答案"><a href="#本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点-x2F-2就是答案" class="headerlink" title="本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点&#x2F;2就是答案"></a>本题相当于要求出有几条欧拉路，我们只要求出有几个奇点，奇点&#x2F;2就是答案</h3><h3 id="若奇点为0，答案为1；"><a href="#若奇点为0，答案为1；" class="headerlink" title="若奇点为0，答案为1；"></a>若奇点为0，答案为1；</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,ans;</span><br><span class="line"><span class="type">int</span> cnt[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="type">int</span> a,b;</span><br><span class="line">		cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">		cnt[a]++;cnt[b]++; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(cnt[i]%<span class="number">2</span>) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!ans) cout&lt;&lt;<span class="string">&quot;1&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span> cout&lt;&lt;ans/<span class="number">2</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-合根植物"><a href="#2-合根植物" class="headerlink" title="2.合根植物"></a>2.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8654">合根植物</a></h2><h3 id="https-zhuanlan-zhihu-com-p-542161296"><a href="#https-zhuanlan-zhihu-com-p-542161296" class="headerlink" title="https://zhuanlan.zhihu.com/p/542161296"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/542161296">https://zhuanlan.zhihu.com/p/542161296</a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> par[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_root</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;    <span class="comment">//求根节点</span></span><br><span class="line">	<span class="keyword">if</span>(par[a]!=a) &#123;</span><br><span class="line">		par[a]=<span class="built_in">get_root</span>(par[a]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> par[a];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">	par[<span class="built_in">get_root</span>(b)]=<span class="built_in">get_root</span>(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> ans; </span><br><span class="line">	<span class="type">int</span> m,n,k;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">	cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	cin&gt;&gt;k;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m*n; i++) &#123;</span><br><span class="line">		par[i]=i;         <span class="comment">//刚开始构成m*n个集合，每个元素的父节点都是自己</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;k; i++) &#123;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">		<span class="built_in">merge</span>(x,y);   <span class="comment">//合并x,y,最终答案就是合并后有多少个集合，即有几个不同的根节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;m*n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(par[i]==i) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-奶酪"><a href="#3-奶酪" class="headerlink" title="3.奶酪"></a>3.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3958">奶酪</a></h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;<span class="comment">//不加本代码爆零</span></span><br><span class="line"><span class="type">int</span> f[<span class="number">1001</span>];<span class="comment">//并查集</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x!=f[x]) f[x]=<span class="built_in">find</span>(f[x]);</span><br><span class="line">    <span class="keyword">return</span> f[x];</span><br><span class="line">&#125;<span class="comment">//查找+路径压缩</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">dis</span><span class="params">(<span class="type">long</span> <span class="type">long</span> x,<span class="type">long</span> <span class="type">long</span> y,<span class="type">long</span> <span class="type">long</span> z,<span class="type">long</span> <span class="type">long</span> x1,<span class="type">long</span> <span class="type">long</span> y1,<span class="type">long</span> <span class="type">long</span> z1)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x-x1)*(x-x1)+(y-y1)*(y-y1)+(z-z1)*(z-z1);</span><br><span class="line">&#125;<span class="comment">//两点距离公式，注意这里算的是距离平方。</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> x[<span class="number">100001</span>],y[<span class="number">100001</span>],z[<span class="number">100001</span>];</span><br><span class="line"><span class="type">int</span> f1[<span class="number">100001</span>],f2[<span class="number">100001</span>];</span><br><span class="line"><span class="comment">//f1记录与顶面相交的洞的序号</span></span><br><span class="line"><span class="comment">//f2记录与底面相交的洞的序号</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    <span class="type">int</span> n,h; </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> r;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=t;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%lld&quot;</span>,&amp;n,&amp;h,&amp;r);<span class="comment">//long long不开的话...</span></span><br><span class="line">        <span class="type">int</span> tot1=<span class="number">0</span>;<span class="comment">//记录与顶面相交的洞有几个</span></span><br><span class="line">        <span class="type">int</span> tot2=<span class="number">0</span>;<span class="comment">//记录与底面相交的洞有几个</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">          f[j]=j;  <span class="comment">//并查集初始化</span></span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld%lld&quot;</span>,&amp;x[j],&amp;y[j],&amp;z[j]);<span class="comment">//long long不开的话...</span></span><br><span class="line">            <span class="keyword">if</span> (z[j]+r&gt;=h)&#123;<span class="comment">//判断这个点是否与顶面相交</span></span><br><span class="line">                tot1++;</span><br><span class="line">                f1[tot1]=j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (z[j]-r&lt;=<span class="number">0</span>)&#123;<span class="comment">//判断这个点是否与底面相交</span></span><br><span class="line">                tot2++;</span><br><span class="line">                f2[tot2]=j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k=<span class="number">1</span>;k&lt;=j;k++)&#123;<span class="comment">//枚举之前的洞是否与这个洞相交，如果相交则合并集合</span></span><br><span class="line">            	<span class="keyword">if</span> ((x[j]-x[k])*(x[j]-x[k])+(y[j]-y[k])*(y[j]-y[k])&gt;<span class="number">4</span>*r*r) <span class="keyword">continue</span>;</span><br><span class="line">            	<span class="comment">//防止爆long long的特判。 </span></span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">dis</span>(x[j],y[j],z[j],x[k],y[k],z[k])&lt;=<span class="number">4</span>*r*r)&#123;</span><br><span class="line">                    <span class="type">int</span> a1=<span class="built_in">find</span>(j);</span><br><span class="line">                    <span class="type">int</span> a2=<span class="built_in">find</span>(k);</span><br><span class="line">                    <span class="keyword">if</span> (a1!=a2) f[a1]=a2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//看看每一个中是否有洞连接上下面</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">1</span>;j&lt;=tot1;j++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k=<span class="number">1</span>;k&lt;=tot2;k++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">find</span>(f1[j])==<span class="built_in">find</span>(f2[k]))&#123;</span><br><span class="line">                    s=<span class="number">1</span>; </span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s==<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (s==<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-灾后重建"><a href="#4-灾后重建" class="headerlink" title="4.灾后重建"></a>4.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1119">灾后重建</a></h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 205</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> f[N][N];<span class="comment">//邻接矩阵存边</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">updata</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">	<span class="keyword">if</span>(f[i][j]&gt;f[i][k]+f[j][k])</span><br><span class="line">	f[i][j]=f[j][i]=f[i][k]+f[j][k];<span class="comment">//用这个新的更新所有前面的 </span></span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,a+i);<span class="comment">//依次输入每一个村庄建立完成时需要的时间</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">		f[i][j]=<span class="number">1e9</span>;<span class="comment">//初始化为保证它不爆炸范围内的最大值 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	f[i][i]=<span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> s1,s2,s3;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;s1,&amp;s2,&amp;s3);</span><br><span class="line">		f[s1][s2]=f[s2][s1]=s3;<span class="comment">//初始化边长 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> q;</span><br><span class="line">	cin&gt;&gt;q;</span><br><span class="line">	<span class="type">int</span> now=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=q;i++)&#123;<span class="comment">//处理各询问 </span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;s1,&amp;s2,&amp;s3);</span><br><span class="line">		<span class="keyword">while</span>(a[now]&lt;=s3&amp;&amp;now&lt;n)&#123;</span><br><span class="line">			<span class="built_in">updata</span>(now);<span class="comment">//依次更新点，使它可以被用来更新其他的点 </span></span><br><span class="line">			now++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[s1]&gt;s3||a[s2]&gt;s3)cout&lt;&lt;<span class="number">-1</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(f[s1][s2]==<span class="number">1e9</span>)cout&lt;&lt;<span class="number">-1</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">else</span> cout&lt;&lt;f[s1][s2]&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="5-聪明的猴子"><a href="#5-聪明的猴子" class="headerlink" title="5.聪明的猴子"></a>5.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2504">聪明的猴子</a></h2><h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m,k,ans=<span class="number">0</span>;</span><br><span class="line"><span class="type">double</span> sum=<span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> a[<span class="number">1000005</span>][<span class="number">3</span>],b[<span class="number">1000005</span>],pre[<span class="number">1000005</span>];<span class="comment">//	前面一直RE，开大一点；</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">zzz</span> &#123;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">	<span class="type">double</span> p;</span><br><span class="line">&#125; z[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(zzz k,zzz d)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k.p&lt;d.p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pre[x]==x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">return</span> pre[x]=<span class="built_in">find</span>(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		cin&gt;&gt;b[i];</span><br><span class="line">	&#125;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		cin&gt;&gt;a[i][<span class="number">1</span>]&gt;&gt;a[i][<span class="number">2</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=n; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(i!=j) &#123;</span><br><span class="line">				k++;</span><br><span class="line">				z[k].x=i;</span><br><span class="line">				z[k].y=j;</span><br><span class="line">				z[k].p=<span class="built_in">sqrt</span>((a[i][<span class="number">1</span>]-a[j][<span class="number">1</span>])*(a[i][<span class="number">1</span>]-a[j][<span class="number">1</span>])+(a[i][<span class="number">2</span>]-a[j][<span class="number">2</span>])*(a[i][<span class="number">2</span>]-a[j][<span class="number">2</span>]));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="type">int</span> cnt=n;<span class="comment">//Kruskal！！！</span></span><br><span class="line">	<span class="built_in">sort</span>(z+<span class="number">1</span>,z+k+<span class="number">1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		pre[i]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=k; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(cnt==<span class="number">1</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="type">int</span> s1=<span class="built_in">find</span>(z[i].x),s2=<span class="built_in">find</span>(z[i].y);</span><br><span class="line">		<span class="keyword">if</span>(s1!=s2) &#123;</span><br><span class="line">			pre[s1]=s2;</span><br><span class="line">			cnt--;</span><br><span class="line">			sum=z[i].p;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;<span class="comment">//比较</span></span><br><span class="line">		<span class="keyword">if</span>(sum&lt;=b[i])</span><br><span class="line">			ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;<span class="comment">//完美输出</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/03/week10-answer/" data-id="clcoh7zl80003p4u801gd3q48" data-title="week10-answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/answer/" rel="tag">answer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week10/" rel="tag">week10</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/01/week9-answer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">week9-answer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/answer/" rel="tag">answer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week10/" rel="tag">week10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week7/" rel="tag">week7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week8/" rel="tag">week8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week9/" rel="tag">week9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/answer/" style="font-size: 15px;">answer</a> <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week10/" style="font-size: 10px;">week10</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/week7/" style="font-size: 10px;">week7</a> <a href="/tags/week8/" style="font-size: 10px;">week8</a> <a href="/tags/week9/" style="font-size: 10px;">week9</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/03/week10-answer/">week10-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/01/week9-answer/">week9-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/25/week8-answer/">week8-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/25/week7-answer/">week7 answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/25/%E7%AC%AC%E4%B8%89%E6%AC%A1%E5%91%A8%E8%B5%9B-2022-12-11/">“第三次周赛”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
