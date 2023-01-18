@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>week12-answer | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.(宝物筛选)[https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1776]题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值先通过二进制优化，再用动态规划即可解决进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。123456789101112131415161718192021222324252627282930313">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week12-answer">
+<meta property="og:url" content="http://example.com/2023/01/18/week12-answer/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.(宝物筛选)[https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1776]题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值先通过二进制优化，再用动态规划即可解决进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。123456789101112131415161718192021222324252627282930313">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-18T04:15:03.000Z">
+<meta property="article:modified_time" content="2023-01-18T04:30:15.945Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="answer">
+<meta property="article:tag" content="week 12">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-week12-answer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/18/week12-answer/" class="article-date">
+  <time class="dt-published" datetime="2023-01-18T04:15:03.000Z" itemprop="datePublished">2023-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      week12-answer
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-宝物筛选-https-www-luogu-com-cn-problem-P1776"><a href="#1-宝物筛选-https-www-luogu-com-cn-problem-P1776" class="headerlink" title="1.(宝物筛选)[https://www.luogu.com.cn/problem/P1776]"></a>1.(宝物筛选)[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1776]">https://www.luogu.com.cn/problem/P1776]</a></h2><h3 id="题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值"><a href="#题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值" class="headerlink" title="题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值"></a>题目给出多种宝物以及各种宝物的价值、重量和数量；要求一定载重下收集宝物的最大价值</h3><h3 id="先通过二进制优化，再用动态规划即可解决"><a href="#先通过二进制优化，再用动态规划即可解决" class="headerlink" title="先通过二进制优化，再用动态规划即可解决"></a>先通过二进制优化，再用动态规划即可解决</h3><h3 id="进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。"><a href="#进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。" class="headerlink" title="进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。"></a>进行二进制优化可能会使宝物数量大大增加，因此需要将数组开大（1000005）。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,W;</span><br><span class="line"><span class="type">int</span> num=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> v[<span class="number">105</span>],w[<span class="number">105</span>],m[<span class="number">105</span>];</span><br><span class="line"><span class="type">int</span> p[<span class="number">1000005</span>],q[<span class="number">1000005</span>];</span><br><span class="line"><span class="type">int</span> f[<span class="number">1000005</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">package</span><span class="params">(<span class="type">int</span> v,<span class="type">int</span> w,<span class="type">int</span> m)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> i=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(m&gt;=i) &#123;</span><br><span class="line">		p[num]=v*i;q[num]=w*i;</span><br><span class="line">		num++;</span><br><span class="line">		m-=i;</span><br><span class="line">		i*=<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(m) &#123;</span><br><span class="line">		p[num]=v*m;q[num++]=w*m;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;W;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">		cin&gt;&gt;v[i]&gt;&gt;w[i]&gt;&gt;m[i];</span><br><span class="line">		<span class="built_in">package</span>(v[i],w[i],m[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//for(int i=1; i&lt;num; i++) cout&lt;&lt;p[i]&lt;&lt;&quot; &quot;&lt;&lt;q[i]&lt;&lt;endl;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;num; i++) </span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=W; j&gt;=q[i]; j--) </span><br><span class="line">			f[j]=<span class="built_in">max</span>(f[j],f[j-q[i]]+p[i]);</span><br><span class="line">	cout&lt;&lt;f[W];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-尴尬的数字-https-www-luogu-com-cn-problem-P1555"><a href="#2-尴尬的数字-https-www-luogu-com-cn-problem-P1555" class="headerlink" title="2.(尴尬的数字)[https://www.luogu.com.cn/problem/P1555]"></a>2.(尴尬的数字)[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1555]">https://www.luogu.com.cn/problem/P1555]</a></h2><h3 id="题目给出一个二进制数和一个三进制数，两个数各有一位是错的，要求出正确的数的十进制数；"><a href="#题目给出一个二进制数和一个三进制数，两个数各有一位是错的，要求出正确的数的十进制数；" class="headerlink" title="题目给出一个二进制数和一个三进制数，两个数各有一位是错的，要求出正确的数的十进制数；"></a>题目给出一个二进制数和一个三进制数，两个数各有一位是错的，要求出正确的数的十进制数；</h3><h3 id="—————————————————————————"><a href="#—————————————————————————" class="headerlink" title="—————————————————————————"></a>—————————————————————————</h3><h3 id="通过列举二进制数所有可能出错的情况，将每种情况下的数与所给的三进制数进行比较（在三进制中比较），只相差一位的就是正确答案。"><a href="#通过列举二进制数所有可能出错的情况，将每种情况下的数与所给的三进制数进行比较（在三进制中比较），只相差一位的就是正确答案。" class="headerlink" title="通过列举二进制数所有可能出错的情况，将每种情况下的数与所给的三进制数进行比较（在三进制中比较），只相差一位的就是正确答案。"></a>通过列举二进制数所有可能出错的情况，将每种情况下的数与所给的三进制数进行比较（在三进制中比较），只相差一位的就是正确答案。</h3><h3 id="列举每一位数出错的情况————-gt-二进制数转化为十进制数再转化为三进制数————-gt-比较两个三进制数"><a href="#列举每一位数出错的情况————-gt-二进制数转化为十进制数再转化为三进制数————-gt-比较两个三进制数" class="headerlink" title="列举每一位数出错的情况————&gt;二进制数转化为十进制数再转化为三进制数————&gt;比较两个三进制数"></a>列举每一位数出错的情况————&gt;二进制数转化为十进制数再转化为三进制数————&gt;比较两个三进制数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">string a,b;</span><br><span class="line"><span class="type">int</span> d[<span class="number">1000005</span>];</span><br><span class="line"><span class="type">int</span> n1,n2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	</span><br><span class="line">	string c=a;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=a.<span class="built_in">length</span>()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">		string c=a;   <span class="comment">//字符串数组c储存可能正确的二进制数</span></span><br><span class="line">		n1=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span>(a[i]==<span class="string">&#x27;1&#x27;</span>) c[i]=<span class="string">&#x27;0&#x27;</span>;   <span class="comment">//替换出错数字</span></span><br><span class="line">		<span class="keyword">else</span> c[i]=<span class="string">&#x27;1&#x27;</span>;  </span><br><span class="line">		<span class="comment">//cout&lt;&lt;c&lt;&lt;endl;</span></span><br><span class="line">		<span class="type">int</span> num=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=c.<span class="built_in">length</span>()<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--) &#123;   <span class="comment">//转化为十进制数</span></span><br><span class="line">			<span class="type">int</span> x=(<span class="type">int</span>)c[j]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">			n1+=x*<span class="built_in">pow</span>(<span class="number">2</span>,c.<span class="built_in">length</span>()<span class="number">-1</span>-j);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//cout&lt;&lt;n1&lt;&lt;endl;</span></span><br><span class="line">		<span class="type">int</span> n3=n1;                     <span class="comment">//为简便用数组储存三进制数</span></span><br><span class="line">		<span class="type">int</span> y=b.<span class="built_in">length</span>()<span class="number">-1</span>;<span class="comment">//2</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=y;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">			<span class="type">int</span> nn=n1/<span class="built_in">pow</span>(<span class="number">3</span>,j);</span><br><span class="line">			n1-=nn*<span class="built_in">pow</span>(<span class="number">3</span>,j);</span><br><span class="line">			d[y-j]=nn;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//for(int j=0;j&lt;=y;j++) cout&lt;&lt;d[j];</span></span><br><span class="line">		<span class="comment">//cout&lt;&lt;endl;</span></span><br><span class="line">		<span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=y;j++)&#123;          <span class="comment">//比较</span></span><br><span class="line">			<span class="type">int</span> hh=(<span class="type">int</span>)b[j]-<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">			<span class="keyword">if</span>(d[j]!=hh) ans++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(ans==<span class="number">1</span>) cout&lt;&lt;n3&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-小卡和质数-https-www-luogu-com-cn-problem-P8845"><a href="#3-小卡和质数-https-www-luogu-com-cn-problem-P8845" class="headerlink" title="3.(小卡和质数)[https://www.luogu.com.cn/problem/P8845]"></a>3.(小卡和质数)[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8845]">https://www.luogu.com.cn/problem/P8845]</a></h2><h3 id="题目给出第x个质数和第y个质数，要求这两个质数异或值是否为-1-；"><a href="#题目给出第x个质数和第y个质数，要求这两个质数异或值是否为-1-；" class="headerlink" title="题目给出第x个质数和第y个质数，要求这两个质数异或值是否为 1 ；"></a>题目给出第x个质数和第y个质数，要求这两个质数异或值是否为 1 ；</h3><h3 id="——————————————————–"><a href="#——————————————————–" class="headerlink" title="——————————————————–"></a>——————————————————–</h3><h3 id="怎么样的两个数异或值为-1-呢？显然是二进制下只有末尾不同的数，要满足这个条件，需要两数奇偶性不同（思考这个条件是因为考虑到质数特殊的奇偶性质），则两个质数为一奇一偶。"><a href="#怎么样的两个数异或值为-1-呢？显然是二进制下只有末尾不同的数，要满足这个条件，需要两数奇偶性不同（思考这个条件是因为考虑到质数特殊的奇偶性质），则两个质数为一奇一偶。" class="headerlink" title="怎么样的两个数异或值为 1 呢？显然是二进制下只有末尾不同的数，要满足这个条件，需要两数奇偶性不同（思考这个条件是因为考虑到质数特殊的奇偶性质），则两个质数为一奇一偶。"></a>怎么样的两个数异或值为 1 呢？显然是二进制下只有末尾不同的数，要满足这个条件，需要两数奇偶性不同（思考这个条件是因为考虑到质数特殊的奇偶性质），则两个质数为一奇一偶。</h3><h3 id="偶数中只有-2-是质数，而易知在其它质数中，只有-3-和-2-的异或值为-1。最终得到：两个质数只能是-3-和-2。"><a href="#偶数中只有-2-是质数，而易知在其它质数中，只有-3-和-2-的异或值为-1。最终得到：两个质数只能是-3-和-2。" class="headerlink" title="偶数中只有 2 是质数，而易知在其它质数中，只有 3 和 2 的异或值为 1。最终得到：两个质数只能是 3 和 2。"></a>偶数中只有 2 是质数，而易知在其它质数中，只有 3 和 2 的异或值为 1。最终得到：两个质数只能是 3 和 2。</h3><h3 id="3-是第-2-个质数，2-是第一个质数，则-x-和-y-为-2-和-1。注意两数可能调换位置。"><a href="#3-是第-2-个质数，2-是第一个质数，则-x-和-y-为-2-和-1。注意两数可能调换位置。" class="headerlink" title="3 是第 2 个质数，2 是第一个质数，则 x 和 y 为 2 和 1。注意两数可能调换位置。"></a>3 是第 2 个质数，2 是第一个质数，则 x 和 y 为 2 和 1。注意两数可能调换位置。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="type">int</span> a,b;</span><br><span class="line">		cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="number">1</span>&amp;&amp;b==<span class="number">2</span>) cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">2</span>&amp;&amp;b==<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/18/week12-answer/" data-id="cld161pen0007ygu8dav4c5k0" data-title="week12-answer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/answer/" rel="tag">answer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/week-12/" rel="tag">week 12</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/16/week11-answer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">week11-answer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/answer/" rel="tag">answer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week-12/" rel="tag">week 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week1/" rel="tag">week1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week10/" rel="tag">week10</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week11/" rel="tag">week11</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week2/" rel="tag">week2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week3/" rel="tag">week3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week4/" rel="tag">week4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week5/" rel="tag">week5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week6/" rel="tag">week6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week7/" rel="tag">week7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week8/" rel="tag">week8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/week9/" rel="tag">week9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%9C%E4%B8%9A/" rel="tag">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%A8%E8%B5%9B/" rel="tag">周赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" rel="tag">第一次</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" rel="tag">第二次</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/answer/" style="font-size: 20px;">answer</a> <a href="/tags/week-12/" style="font-size: 10px;">week 12</a> <a href="/tags/week1/" style="font-size: 10px;">week1</a> <a href="/tags/week10/" style="font-size: 10px;">week10</a> <a href="/tags/week11/" style="font-size: 10px;">week11</a> <a href="/tags/week2/" style="font-size: 10px;">week2</a> <a href="/tags/week3/" style="font-size: 10px;">week3</a> <a href="/tags/week4/" style="font-size: 10px;">week4</a> <a href="/tags/week5/" style="font-size: 10px;">week5</a> <a href="/tags/week6/" style="font-size: 10px;">week6</a> <a href="/tags/week7/" style="font-size: 10px;">week7</a> <a href="/tags/week8/" style="font-size: 10px;">week8</a> <a href="/tags/week9/" style="font-size: 10px;">week9</a> <a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 20px;">作业</a> <a href="/tags/%E5%91%A8%E8%B5%9B/" style="font-size: 15px;">周赛</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1/" style="font-size: 10px;">第一次</a> <a href="/tags/%E7%AC%AC%E4%BA%8C%E6%AC%A1/" style="font-size: 10px;">第二次</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/18/week12-answer/">week12-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/16/week11-answer/">week11-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/03/week10-answer/">week10-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/01/week9-answer/">week9-answer</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/25/week8-answer/">week8-answer</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
